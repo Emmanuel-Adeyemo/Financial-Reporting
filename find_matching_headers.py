@@ -1,7 +1,6 @@
 import pdfplumber
 import json
 
-# Define mapping for standard keys to possible header names
 header_mapping = {
     "TXN_DATE": ["txn date", "transaction date", "post date", "posted date", "date", "transdate", 'posted\ndate'],
     "VAL_DATE": ["val date", "value date", "valuedate", 'value\ndate'],
@@ -21,16 +20,16 @@ poss_words = [
 ]
 
 def find_matching_headers(poss_words, col_headers):
-    matching_headers = []  # List to store header lists that match the condition
+    matching_headers = []  
     for header_list in col_headers:
         found_keywords = []
         for word_group in poss_words:            
             for keyword in word_group:
                 for header in header_list:
                     if header is not None:
-                        if keyword.lower() in header.lower():  # Case-insensitive comparison
+                        if keyword.lower() in header.lower(): 
                             found_keywords.append(keyword)
                             break
-        if len(found_keywords) >= 2:  # If two or more keywords match
+        if len(found_keywords) >= 2:  
             matching_headers.append(header_list)
     return matching_headers
