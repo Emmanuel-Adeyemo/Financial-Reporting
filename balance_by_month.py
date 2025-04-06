@@ -11,7 +11,7 @@ def balance_by_month(json_path):
     for transaction in bank_dta['transactions']:
         post_date = transaction.get('TXN_DATE', '').strip()
     
-        if not post_date:  # if post date is empty
+        if not post_date:  
             continue
     
         post_date_formatted = format_date(post_date)
