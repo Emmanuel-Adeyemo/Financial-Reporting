@@ -18,7 +18,7 @@ class PDFReport(FPDF):
         self.ln(5)
 
     def add_section(self, title, content):
-        # Add sections to the PDF
+        # Add sections 
         self.set_font('Helvetica', 'B', 12)
         self.cell(0, 10, title, ln=True)
         self.ln(5)
